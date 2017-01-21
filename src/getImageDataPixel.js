@@ -1,10 +1,12 @@
-module.exports = function getImageDataPixel(imageData, x, y) {
-	const rowCol = (y * (imageData.width * 4)) + (x * 4);
+const getOffsetFromCoords = require('./getOffsetFromCoords');
 
-	const r = imageData.data[rowCol + 0];
-	const g = imageData.data[rowCol + 1];
-	const b = imageData.data[rowCol + 2];
-	const a = imageData.data[rowCol + 3];
+module.exports = function getImageDataPixel(imageData, { x, y }) {
+	const offset = getOffsetFromCoords(imageData.width, { x, y });
+
+	const r = imageData.data[offset + 0];
+	const g = imageData.data[offset + 1];
+	const b = imageData.data[offset + 2];
+	const a = imageData.data[offset + 3];
 
 	return [r, g, b, a];
 }
