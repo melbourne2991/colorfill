@@ -8,6 +8,7 @@ module.exports = {
 		filename: 'bundle.js'
 	},
 	module: {
+		exclude: /node_modules/,
 		loaders: [
 			{
 				test: /\.js$/,
