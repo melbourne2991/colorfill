@@ -21,13 +21,11 @@ module.exports = function fill(ctx, imageData, fillTarget) {
     let direction = FORWARD_DIRECTION;
     let checkedForward = false;
     let pos = { x: origin.x, y: origin.y };
-    let count = 0;
-
+    
     let canAddAboveSeg = true;
     let canAddBelowSeg = true;
 
     while(noBoundary) {
-      count++;
       pixelColor = getImageDataPixel(imageData, pos);
 
       if(eql(pixelColor, RGBA_WHITE)) {
