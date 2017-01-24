@@ -1,6 +1,6 @@
 const fillAxis = require('./fillAxis');
 const getImageDataPixel = require('./getImageDataPixel');
-const eql = require('deep-equal');
+// const eql = require('deep-equal');
 const fillPixel = require('./fillPixel');
 
 const { 
@@ -75,6 +75,15 @@ module.exports = function fill(ctx, imageData, fillTarget) {
 
   // render it!
   ctx.putImageData(imageData, 0, 0);  
+}
+
+function eql(rgba1, rgba2) {
+  return (
+    rgba1[0] === rgba2[0] &&
+    rgba1[1] === rgba2[1] &&
+    rgba1[2] === rgba2[2] &&
+    rgba1[3] === rgba2[3]
+  );
 }
 
 function getAbovePixelColor(imageData, {x, y}) {
